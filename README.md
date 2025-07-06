@@ -1,5 +1,5 @@
 📚 Novel Platform – Microservices Architecture
-A scalable, modular microservices-based system for hosting, managing, reading, and recommending novels. Built with Spring Boot, Spring Cloud, Kafka, Consul, and optional AI services.
+A scalable, modular microservices-based system for hosting, managing, reading, and recommending novels. Built with Spring Boot, Spring Cloud, Kafka, Consul, and Keycloak for modern authentication.
 
 🧱 Architecture Overview
                             +-------------------+
@@ -122,22 +122,27 @@ Description
 
 gateway-service
 8000
-API Gateway (Spring Cloud Gateway)
+API Gateway (Spring Cloud Gateway) - Planned
 
 
 graphql-gateway
 8001
-GraphQL Aggregator for mobile
+GraphQL Aggregator for mobile - Planned
 
 
-consul-server
+consul
 8500
-Service Discovery (Consul)
+Service Discovery (Consul) ✅
+
+
+keycloak
+8080
+Identity Provider (Keycloak) ✅
 
 
 config-server
 8888
-Centralized Config (Spring Cloud Config)
+Centralized Config (Spring Cloud Config) - Planned
 
 
 
@@ -167,7 +172,7 @@ Kafka / RabbitMQ
 
 
 Auth
-JWT, Role-based access
+Keycloak OAuth2/OIDC, Role-based access (USER, ADMIN)
 
 
 Database
@@ -196,68 +201,106 @@ Docker + Docker Compose
 
 
 🚀 Getting Started (Local)
+
+## Prerequisites
+- Docker and Docker Compose
+- Java 17+ (for local development)
+- Maven 3.6+ (for local development)
+
+## Quick Start
 1. Clone repo
-git clone https://github.com/your-org/novel-platform.git
-cd novel-platform
+```bash
+git clone https://github.com/lqviet45/light-novel-BE.git
+cd light-novel-BE
+```
 
-2. Start core services (user, novel, chapter)
-docker-compose up -d user-service novel-service chapter-service consul-server gateway-service postgres
+2. Start infrastructure services
+```bash
+docker-compose up -d consul keycloak keycloak-postgres user-service-postgres
+```
 
-3. Access Consul dashboard
+3. Configure Keycloak realm (first time setup)
+- Access Keycloak: http://localhost:8080
+- Login with admin/admin
+- Create realm: `light-novel`
+- Create roles: `USER`, `ADMIN`
+- Create users and assign roles
 
-URL: http://localhost:8500
-Note: Configure Consul ACL for secure access (see Consul Security).
+4. Start application services
+```bash
+docker-compose up -d user-service
+```
+
+5. Access services
+- Consul UI: http://localhost:8500
+- Keycloak Admin: http://localhost:8080
+- User Service: http://localhost:8081/actuator/health
+
+## Development Setup
+```bash
+cd user-service
+./mvnw spring-boot:run
+```
 
 ⚙️ Folder Structure
-novel-platform/
-├── user-service/
-├── novel-service/
-├── chapter-service/
-├── search-service/
-├── gateway-service/
-├── graphql-gateway/
-├── consul-server/
-├── config-server/
-├── docker-compose.yml
+light-novel-BE/
+├── user-service/          # Authentication & User Management
+├── compose.yaml           # Docker Compose configuration
 └── README.md
-
 
 📌 Roadmap
 
-Build user-service with JWT auth.
-Connect services to Consul for service discovery.
-Add novel-service + CRUD + auth check.
-Add chapter-service + MongoDB support.
-Setup graphql-gateway for mobile.
-Add crawler-service + ai-translate-service via FastAPI.
-Add search-service and integrate with Elasticsearch.
-Add Redis, Kafka for caching and messaging.
-Add Docker Compose + Monitoring with Prometheus/Grafana.
+✅ **Phase 1: Foundation** (Current)
+- [x] Build user-service with Keycloak OAuth2 auth
+- [x] Connect services to Consul for service discovery
+- [x] Replace deprecated Eureka with modern stack
+
+🚧 **Phase 2: Core Services**
+- [ ] Add novel-service + CRUD + auth check
+- [ ] Add chapter-service + MongoDB support
+- [ ] Setup gateway-service for API routing
+
+🔮 **Phase 3: Extended Features**
+- [ ] Add search-service and integrate with Elasticsearch
+- [ ] Add Redis, Kafka for caching and messaging
+- [ ] Setup graphql-gateway for mobile
+- [ ] Add crawler-service + ai-translate-service via FastAPI
+- [ ] Add Docker Compose + Monitoring with Prometheus/Grafana
 
 
-🔐 Authentication
+🔐 Authentication & Security
 
-JWT is used across services.
-Roles: USER, ADMIN.
-Secure routes via Spring Security configuration.
+## Keycloak Integration
+- **Identity Provider**: Keycloak OAuth2/OIDC
+- **Roles**: USER, ADMIN mapped from Keycloak realm roles
+- **Token Validation**: JWT tokens validated via OAuth2 Resource Server
+- **Endpoints**: 
+  - Public: `/actuator/**`, `/api/auth/**`
+  - Protected: All other endpoints require authentication
+  - Admin: `/api/admin/**` requires ADMIN role
 
-Consul Security
+## Consul Security
+- Enable Consul ACL (Access Control List) to secure service registration and discovery
+- Use HTTPS for Consul server communication in production
+- Configure service tokens in application.yml for secure integration
 
-Enable Consul ACL (Access Control List) to secure service registration and discovery.
-Use HTTPS for Consul server communication.
-Configure service tokens in application.yml for secure integration with Spring Cloud Consul.
-
-Example Consul configuration for a service:
+## Service Configuration Example
+```yaml
 spring:
   cloud:
     consul:
-      host: consul-server
+      host: consul
       port: 8500
       discovery:
         prefer-ip-address: true
         service-name: ${spring.application.name}
-      config:
-        enabled: true
+        health-check-path: /actuator/health
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://keycloak:8080/realms/light-novel
+```
 
 
 🤝 Contributing

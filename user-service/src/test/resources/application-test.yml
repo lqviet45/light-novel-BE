@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: user-service-test
+  cloud:
+    consul:
+      enabled: false
+      discovery:
+        enabled: false
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/light-novel
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    database-platform: org.hibernate.dialect.H2Dialect
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
