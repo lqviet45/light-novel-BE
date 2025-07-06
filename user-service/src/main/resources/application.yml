@@ -5,7 +5,7 @@ spring:
   application:
     name: user-service
   datasource:
-    url: jdbc:postgresql://postgres:5432/noveldb
+    url: jdbc:postgresql://localhost:5432/noveldb
     username: admin
     password: secret
     driver-class-name: org.postgresql.Driver
@@ -24,3 +24,22 @@ eureka:
 jwt:
   secret: your-secure-jwt-secret-key
   expiration: 86400000 # 1 day in milliseconds
+
+---
+spring:
+  config:
+    activate:
+      on-profile: test
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    database-platform: org.hibernate.dialect.H2Dialect
+  
+eureka:
+  client:
+    enabled: false
