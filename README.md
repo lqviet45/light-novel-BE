@@ -1,7 +1,7 @@
 # 📚 Light Novel Platform - Microservices Backend
 
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.5.3-green.svg)](https://spring.io/projects/spring-boot)
-[![Java](https://img.shields.io/badge/Java-17+-blue.svg)](https://openjdk.java.net/)
+[![Java](https://img.shields.io/badge/Java-21+-blue.svg)](https://openjdk.java.net/)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Latest-blue.svg)](https://www.postgresql.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Build Status](https://img.shields.io/badge/Build-Passing-green.svg)](#)
@@ -132,7 +132,7 @@ Access the application at `http://localhost:8081`
 | **ORM** | JPA/Hibernate |
 | **Build Tool** | Maven |
 | **Containerization** | Docker & Docker Compose |
-| **Java Version** | 17+ |
+| **Java Version** | 21+ |
 
 ### Planned Technologies
 | Category | Technology |
