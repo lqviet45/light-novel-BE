@@ -1,7 +1,5 @@
 server:
   port: 8080
-  servlet:
-    context-path: /user-service
 
 spring:
   application:
@@ -26,16 +24,10 @@ spring:
         generate_statistics: false
         use_sql_comments: true
     open-in-view: false
-  liquibase:
-    change-log: classpath:/db/changelog/db.changelog-master.yaml
   jackson:
     serialization:
       write-dates-as-timestamps: false
     time-zone: UTC
-
-jwt:
-  secret: your-secure-jwt-secret-key
-  expiration: 86400000 # 1 day in milliseconds
 logging:
   level:
     com.lqviet.userservice: DEBUG
