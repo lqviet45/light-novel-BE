@@ -1,5 +1,6 @@
 ﻿package com.lqviet.userservice.entities;
 
+import com.lqviet.userservice.enums.RoleName;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -18,7 +19,8 @@ public class Role {
     private Long id;
 
     @Column(unique = true, nullable = false)
-    private String name;
+    @Enumerated(EnumType.STRING)
+    private RoleName name;
 
     private String description;
 

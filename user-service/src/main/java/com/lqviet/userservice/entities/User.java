@@ -1,10 +1,8 @@
 ﻿package com.lqviet.userservice.entities;
 
+import com.lqviet.userservice.enums.UserStatus;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -18,6 +16,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Getter
 @Setter
+@Builder
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,8 +31,9 @@ public class User {
     @Column(nullable = false)
     private String password;
 
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private boolean enabled = true;
+    private UserStatus status = UserStatus.ACTIVE;
 
     @Column(nullable = false)
     private boolean accountNonExpired = true;
@@ -45,10 +45,14 @@ public class User {
     private boolean credentialsNonExpired = true;
 
     @CreationTimestamp
+    @Column(updatable = false, nullable = false)
     private LocalDateTime createdAt;
 
     @UpdateTimestamp
     private LocalDateTime updatedAt;
+
+    @Version
+    private Long version;
 
     @ManyToMany(cascade = CascadeType.DETACH)
     @JoinTable(name = "users_roles",
