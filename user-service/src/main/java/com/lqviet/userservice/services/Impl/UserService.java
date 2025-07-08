@@ -1,4 +1,4 @@
-package com.lqviet.userservice.services;
+package com.lqviet.userservice.services.Impl;
 
 import com.lqviet.userservice.dto.requests.PasswordUpdateRequest;
 import com.lqviet.userservice.dto.requests.UserRegistrationRequest;
@@ -14,6 +14,7 @@ import com.lqviet.userservice.exceptions.UsernameAlreadyExistsException;
 import com.lqviet.userservice.mapper.UserMapper;
 import com.lqviet.userservice.repositories.RoleRepository;
 import com.lqviet.userservice.repositories.UserRepository;
+import com.lqviet.userservice.services.IUserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -26,7 +27,7 @@ import java.util.Set;
 @Transactional
 @Slf4j
 @RequiredArgsConstructor
-public class UserService {
+public class UserService implements IUserService {
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
     private final UserMapper userMapper;

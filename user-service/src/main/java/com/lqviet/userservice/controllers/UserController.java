@@ -5,7 +5,7 @@ import com.lqviet.userservice.dto.requests.UserRegistrationRequest;
 import com.lqviet.userservice.dto.requests.UserUpdateRequest;
 import com.lqviet.userservice.dto.responses.ApiResponse;
 import com.lqviet.userservice.dto.responses.UserResponse;
-import com.lqviet.userservice.services.UserService;
+import com.lqviet.userservice.services.IUserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -20,7 +20,7 @@ import java.time.LocalDateTime;
 @RequiredArgsConstructor
 @Slf4j
 public class UserController {
-    private final UserService userService;
+    private final IUserService userService;
 
     @PostMapping
     public ResponseEntity<ApiResponse<UserResponse>> createUser(
