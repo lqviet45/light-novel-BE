@@ -1,4 +1,4 @@
-﻿package com.lqviet.userservice.repositories;
+package com.lqviet.userservice.repositories;
 
 import com.lqviet.userservice.entities.User;
 import com.lqviet.userservice.enums.RoleName;

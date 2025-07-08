@@ -1,4 +1,4 @@
-﻿package com.lqviet.userservice.entities;
+package com.lqviet.userservice.entities;
 
 import com.lqviet.userservice.enums.RoleName;
 import jakarta.persistence.*;

@@ -1,4 +1,4 @@
-﻿package com.lqviet.userservice.dto.responses;
+package com.lqviet.userservice.dto.responses;
 
 import lombok.Builder;
 import lombok.Data;

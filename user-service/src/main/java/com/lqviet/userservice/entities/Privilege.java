@@ -1,4 +1,4 @@
-﻿package com.lqviet.userservice.entities;
+package com.lqviet.userservice.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

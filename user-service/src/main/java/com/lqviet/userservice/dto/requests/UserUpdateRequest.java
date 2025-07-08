@@ -1,4 +1,4 @@
-﻿package com.lqviet.userservice.dto.requests;
+package com.lqviet.userservice.dto.requests;
 
 import com.lqviet.userservice.enums.UserStatus;
 import jakarta.persistence.EnumType;

@@ -1,4 +1,4 @@
-﻿package com.lqviet.userservice.dto.requests;
+package com.lqviet.userservice.dto.requests;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;

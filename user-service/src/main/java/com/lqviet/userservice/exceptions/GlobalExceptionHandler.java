@@ -1,4 +1,4 @@
-﻿package com.lqviet.userservice.exceptions;
+package com.lqviet.userservice.exceptions;
 
 import com.lqviet.userservice.dto.responses.ApiErrorResponse;
 import lombok.extern.slf4j.Slf4j;

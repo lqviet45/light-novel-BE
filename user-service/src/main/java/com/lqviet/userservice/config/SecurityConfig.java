@@ -1,4 +1,4 @@
-﻿package com.lqviet.userservice.config;
+package com.lqviet.userservice.config;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
