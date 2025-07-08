@@ -1,4 +1,4 @@
-﻿package com.lqviet.userservice.aspect;
+package com.lqviet.userservice.aspect;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;

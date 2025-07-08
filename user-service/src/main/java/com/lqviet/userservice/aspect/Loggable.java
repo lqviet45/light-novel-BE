@@ -1,4 +1,4 @@
-﻿package com.lqviet.userservice.aspect;
+package com.lqviet.userservice.aspect;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

@@ -1,4 +1,4 @@
-﻿package com.lqviet.userservice.enums;
+package com.lqviet.userservice.enums;
 
 public enum RoleName {
     USER,
