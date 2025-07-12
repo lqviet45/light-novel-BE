@@ -10,10 +10,10 @@ services:
     networks:
       - internal
     volumes:
-      - user-service-postgres-data:/var/lib/postgresql/data
+      - pgdata:/var/lib/postgresql/data
 
   user-service:
-    image: 'lqviet455/user-service:latest'
+#    image: 'lqviet455/user-service:latest'
     container_name: user-service
     build:
       context: ./user-service
@@ -34,10 +34,6 @@ services:
 networks:
   internal:
     driver: bridge
+
 volumes:
-  user-service-postgres-data:
-    driver: local
-    driver_opts:
-      type: none
-      device: /var/lib/postgresql/data
-      o: bind
+  pgdata:
