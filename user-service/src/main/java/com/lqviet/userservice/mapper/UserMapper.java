@@ -25,10 +25,13 @@ public class UserMapper {
                 .username(request.getUsername())
                 .email(request.getEmail())
                 .password(request.getPassword())
+                .firstName(request.getFirstName())
+                .lastName(request.getLastName())
                 .status(UserStatus.ACTIVE)
                 .accountNonExpired(true)
                 .accountNonLocked(true)
                 .credentialsNonExpired(true)
+                .emailVerified(false)
                 .roles(new LinkedHashSet<>())
                 .build();
     }
@@ -39,20 +42,35 @@ public class UserMapper {
         }
 
         Set<String> roleNames = user.getRoles() != null
-            ? user.getRoles().stream()
+                ? user.getRoles().stream()
                 .map(Role::getName)
                 .map(Enum::name)
                 .collect(Collectors.toSet())
-            : new LinkedHashSet<>();
+                : new LinkedHashSet<>();
 
         return UserResponse.builder()
                 .id(user.getId())
                 .username(user.getUsername())
                 .email(user.getEmail())
+                .firstName(user.getFirstName())
+                .lastName(user.getLastName())
+                .fullName(user.getFullName())
+                .phoneNumber(user.getPhoneNumber())
+                .bio(user.getBio())
+                .dateOfBirth(user.getDateOfBirth())
+                .profilePictureUrl(user.getProfilePictureUrl())
                 .status(user.getStatus())
+                .emailVerified(user.isEmailVerified())
+                .accountNonExpired(user.isAccountNonExpired())
+                .accountNonLocked(user.isAccountNonLocked())
+                .credentialsNonExpired(user.isCredentialsNonExpired())
+                .enabled(user.isEnabled())
+                .lastLoginAt(user.getLastLoginAt())
+                .passwordChangedAt(user.getPasswordChangedAt())
                 .roles(roleNames)
                 .createdAt(user.getCreatedAt())
                 .updatedAt(user.getUpdatedAt())
+                .version(user.getVersion())
                 .build();
     }
 
@@ -67,6 +85,21 @@ public class UserMapper {
         if (updateRequest.getEmail() != null) {
             existingUser.setEmail(updateRequest.getEmail());
         }
+        if (updateRequest.getFirstName() != null) {
+            existingUser.setFirstName(updateRequest.getFirstName());
+        }
+        if (updateRequest.getLastName() != null) {
+            existingUser.setLastName(updateRequest.getLastName());
+        }
+        if (updateRequest.getPhoneNumber() != null) {
+            existingUser.setPhoneNumber(updateRequest.getPhoneNumber());
+        }
+        if (updateRequest.getBio() != null) {
+            existingUser.setBio(updateRequest.getBio());
+        }
+        if (updateRequest.getDateOfBirth() != null) {
+            existingUser.setDateOfBirth(updateRequest.getDateOfBirth());
+        }
         if (updateRequest.getStatus() != null) {
             existingUser.setStatus(updateRequest.getStatus());
         }
@@ -79,6 +112,35 @@ public class UserMapper {
 
         return users.stream()
                 .map(this::toResponse)
+                .collect(Collectors.toList());
+    }
+
+    public UserResponse toSafeResponse(User user) {
+        if (user == null) {
+            return null;
+        }
+
+        // Safe response without sensitive information
+        return UserResponse.builder()
+                .id(user.getId())
+                .username(user.getUsername())
+                .firstName(user.getFirstName())
+                .lastName(user.getLastName())
+                .fullName(user.getFullName())
+                .profilePictureUrl(user.getProfilePictureUrl())
+                .bio(user.getBio())
+                .status(user.getStatus())
+                .createdAt(user.getCreatedAt())
+                .build();
+    }
+
+    public List<UserResponse> toSafeResponseList(List<User> users) {
+        if (users == null) {
+            return null;
+        }
+
+        return users.stream()
+                .map(this::toSafeResponse)
                 .collect(Collectors.toList());
     }
 }
