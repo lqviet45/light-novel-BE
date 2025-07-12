@@ -1,4 +1,4 @@
-﻿package com.lqviet.userservice.specifications;
+package com.lqviet.userservice.specifications;
 
 import com.lqviet.userservice.entities.User;
 import com.lqviet.userservice.enums.UserStatus;
