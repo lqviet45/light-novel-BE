@@ -7,3 +7,37 @@ services:
       - 'POSTGRES_USER=admin'
     ports:
       - '5432:5432'
+    networks:
+      - internal
+    volumes:
+      - user-service-postgres-data:/var/lib/postgresql/data
+
+  user-service:
+    image: 'lqviet455/user-service:latest'
+    container_name: user-service
+    build:
+      context: ./user-service
+      dockerfile: Dockerfile
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://user-service-postgres:5432/noveldb
+      SPRING_DATASOURCE_USERNAME: admin
+      SPRING_DATASOURCE_PASSWORD: secret
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_SQL_INIT_MODE: always
+    ports:
+      - '8000:8000'
+    depends_on:
+      - user-service-postgres
+    networks:
+      - internal
+
+networks:
+  internal:
+    driver: bridge
+volumes:
+  user-service-postgres-data:
+    driver: local
+    driver_opts:
+      type: none
+      device: /var/lib/postgresql/data
+      o: bind
