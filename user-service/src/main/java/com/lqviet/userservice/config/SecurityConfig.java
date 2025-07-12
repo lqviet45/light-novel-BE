@@ -31,10 +31,9 @@ public class SecurityConfig {
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/actuator/health", "/actuator/info").permitAll()
-                        .requestMatchers("/api/v1/users/**").permitAll() // Allow all for internal service communication
+                        .requestMatchers("/api/v1/users/**").permitAll() // ✅ Correct for internal service
                         .anyRequest().permitAll()
                 );
-
         return http.build();
     }
 }
