@@ -1,4 +1,4 @@
-package com.lqviet.userservice.config;
+﻿package com.lqviet.authservice.config;
 
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
@@ -13,8 +13,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @OpenAPIDefinition(
         info = @Info(
-                title = "User Service API",
-                description = "User management microservice for Light Novel Platform",
+                title = "Auth Service API",
+                description = "Authentication and authorization microservice for Light Novel Platform",
                 version = "1.0.0",
                 contact = @Contact(
                         name = "Lê Quốc Việt",
@@ -23,11 +23,11 @@ import org.springframework.context.annotation.Configuration;
                 ),
                 license = @License(
                         name = "Apache 2.0",
-                        url = "https://www.apache.org/licenses/LICENSE-2.0.html"
+                        url = "https://www.apache.org/licenses/LICENSE-2.0"
                 )
         ),
         servers = {
-                @Server(url = "http://localhost:8000", description = "Development Server"),
+                @Server(url = "http://localhost:8082", description = "Development Server"),
         },
         security = @SecurityRequirement(name = "JWT")
 )
@@ -36,8 +36,7 @@ import org.springframework.context.annotation.Configuration;
         type = SecuritySchemeType.HTTP,
         scheme = "bearer",
         bearerFormat = "JWT",
-        description = "JWT token for authentication. Get token from auth service."
+        description = "JWT token for authentication. Obtain token from /api/v1/auth/login endpoint."
 )
 public class OpenApiConfig {
-    // Configuration is handled by annotations above
 }
