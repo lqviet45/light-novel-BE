@@ -1,4 +1,4 @@
-﻿package com.lqviet.authservice.security;
+package com.lqviet.authservice.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lqviet.authservice.dtos.reseponses.ApiErrorResponse;

@@ -1,4 +1,4 @@
-﻿package com.lqviet.authservice.config;
+package com.lqviet.authservice.config;
 
 import com.lqviet.authservice.security.JwtAuthenticationEntryPoint;
 import com.lqviet.authservice.security.JwtAuthenticationFilter;
@@ -34,7 +34,7 @@ public class SecurityConfig {
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
 
     @Value("${security.cors.allowed-origins}")
-    private List<String> allowedOrigins;
+    private String allowedOrigins;
 
     @Value("${security.cors.allowed-methods}")
     private String allowedMethods;
@@ -100,7 +100,7 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
 
-        configuration.setAllowedOrigins(allowedOrigins);
+        configuration.setAllowedOrigins(Arrays.asList(allowedOrigins.split(",")));
         configuration.setAllowedMethods(Arrays.asList(allowedMethods.split(",")));
         configuration.setAllowedHeaders(Arrays.asList(allowedHeaders.split(",")));
         configuration.setExposedHeaders(Arrays.asList(exposedHeaders.split(",")));

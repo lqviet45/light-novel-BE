@@ -58,7 +58,7 @@ services:
       JWT_SECRET: "dGhpc2lzYXZlcnlzZWN1cmVzZWNyZXRrZXlmb3JsaWdodG5vdmVscGxhdGZvcm0yMDI1"
       SECURITY_CORS_ALLOWED_ORIGINS: "http://localhost:3000,http://localhost:3001,https://lightnovel.com"
     ports:
-      - '8082:8082'
+      - '8081:8081'
     depends_on:
       auth-service-redis:
         condition: service_healthy
@@ -67,7 +67,7 @@ services:
     networks:
       - internal
     healthcheck:
-      test: [ "CMD", "curl", "-f", "http://localhost:8082/actuator/health" ]
+      test: [ "CMD", "curl", "-f", "http://localhost:8081/actuator/health" ]
       interval: 30s
       timeout: 10s
       retries: 5

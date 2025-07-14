@@ -1,4 +1,4 @@
-﻿package com.lqviet.authservice.feign;
+package com.lqviet.authservice.feign;
 
 import feign.Logger;
 import feign.RequestInterceptor;

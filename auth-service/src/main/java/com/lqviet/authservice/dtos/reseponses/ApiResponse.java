@@ -1,4 +1,4 @@
-﻿package com.lqviet.authservice.dtos.reseponses;
+package com.lqviet.authservice.dtos.reseponses;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -1,4 +1,4 @@
-﻿package com.lqviet.authservice.exceptions;
+package com.lqviet.authservice.exceptions;
 
 import lombok.Getter;
 import org.springframework.http.HttpStatus;

@@ -1,4 +1,4 @@
-﻿package com.lqviet.authservice.feign;
+package com.lqviet.authservice.feign;
 
 import com.lqviet.authservice.exceptions.UserServiceException;
 import feign.Response;

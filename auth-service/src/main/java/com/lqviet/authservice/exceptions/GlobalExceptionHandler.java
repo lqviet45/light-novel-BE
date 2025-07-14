@@ -1,4 +1,4 @@
-﻿package com.lqviet.authservice.exceptions;
+package com.lqviet.authservice.exceptions;
 
 import com.lqviet.authservice.dtos.reseponses.ApiErrorResponse;
 import feign.FeignException;

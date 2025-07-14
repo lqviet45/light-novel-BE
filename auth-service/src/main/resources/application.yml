@@ -1,5 +1,5 @@
 server:
-  port: 8082
+  port: 8081
 
 spring:
   application:
@@ -17,6 +17,7 @@ spring:
           max-idle: 8
           min-idle: 0
           max-wait: -1ms
+          enabled: true
 
   jackson:
     serialization:
@@ -43,10 +44,7 @@ user-service:
 # Security Configuration
 security:
   cors:
-    allowed-origins:
-      - "http://localhost:3000"
-      - "http://localhost:3001"
-      - "https://lightnovel.com"
+    allowed-origins: "http://localhost:3000,http://localhost:3001,https://lightnovel.com"
     allowed-methods: "GET,POST,PUT,DELETE,OPTIONS"
     allowed-headers: "*"
     exposed-headers: "Authorization"

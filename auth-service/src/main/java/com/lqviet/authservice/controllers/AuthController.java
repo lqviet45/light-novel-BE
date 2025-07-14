@@ -1,4 +1,4 @@
-﻿package com.lqviet.authservice.controllers;
+package com.lqviet.authservice.controllers;
 
 import com.lqviet.authservice.dtos.requests.LoginRequest;
 import com.lqviet.authservice.dtos.requests.LogoutRequest;

@@ -1,4 +1,4 @@
-﻿package com.lqviet.authservice.exceptions;
+package com.lqviet.authservice.exceptions;
 
 public class AuthenticationException extends RuntimeException {
     public AuthenticationException(String message) {

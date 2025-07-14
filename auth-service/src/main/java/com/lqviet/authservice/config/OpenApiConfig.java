@@ -1,4 +1,4 @@
-﻿package com.lqviet.authservice.config;
+package com.lqviet.authservice.config;
 
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;

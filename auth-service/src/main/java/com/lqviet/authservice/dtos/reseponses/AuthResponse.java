@@ -1,4 +1,4 @@
-﻿package com.lqviet.authservice.dtos.reseponses;
+package com.lqviet.authservice.dtos.reseponses;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;

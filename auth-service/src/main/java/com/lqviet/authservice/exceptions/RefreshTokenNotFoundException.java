@@ -1,4 +1,4 @@
-﻿package com.lqviet.authservice.exceptions;
+package com.lqviet.authservice.exceptions;
 
 public class RefreshTokenNotFoundException extends RuntimeException {
     public RefreshTokenNotFoundException(String message) {

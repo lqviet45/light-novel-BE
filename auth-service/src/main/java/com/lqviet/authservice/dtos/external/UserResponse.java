@@ -1,4 +1,4 @@
-﻿package com.lqviet.authservice.dtos.external;
+package com.lqviet.authservice.dtos.external;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;

@@ -1,4 +1,4 @@
-﻿package com.lqviet.authservice.config;
+package com.lqviet.authservice.config;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

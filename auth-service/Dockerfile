@@ -18,6 +18,6 @@ WORKDIR /app
 
 COPY --from=builder /app/target/*.war ./app.war
 
-EXPOSE 8082
+EXPOSE 8081
 
 CMD ["java", "-jar", "app.war"]

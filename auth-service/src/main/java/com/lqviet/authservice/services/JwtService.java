@@ -1,4 +1,4 @@
-﻿package com.lqviet.authservice.services;
+package com.lqviet.authservice.services;
 
 import com.lqviet.authservice.dtos.external.UserResponse;
 import io.jsonwebtoken.*;

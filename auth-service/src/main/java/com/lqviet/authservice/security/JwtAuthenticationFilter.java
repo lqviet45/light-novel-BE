@@ -1,4 +1,4 @@
-﻿package com.lqviet.authservice.security;
+package com.lqviet.authservice.security;
 
 import com.lqviet.authservice.services.JwtService;
 import com.lqviet.authservice.services.TokenService;

@@ -1,4 +1,4 @@
-﻿package com.lqviet.authservice.config;
+package com.lqviet.authservice.config;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
@@ -40,6 +40,7 @@ public class RedisConfig {
         if (redisPassword != null && !redisPassword.trim().isEmpty()) {
             config.setPassword(redisPassword);
         }
+
 
         JedisConnectionFactory factory = new JedisConnectionFactory(config);
 
