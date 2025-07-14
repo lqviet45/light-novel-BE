@@ -307,7 +307,7 @@ POSTGRES_PASSWORD=your-db-password
 ## 🎯 Roadmap
 
 ### Phase 1: Foundation (🚧 In Progress)
-- [x] User Service with CRUD operations
+- [ ] User Service with CRUD operations
 - [ ] Auth Service with JWT authentication
 - [ ] PostgreSQL database integration
 - [x] Docker containerization
