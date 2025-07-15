@@ -1,4 +1,4 @@
-﻿package com.lqviet.accountservices.entities;
+package com.lqviet.accountservices.entities;
 
 import com.lqviet.accountservices.enums.NotificationStatus;
 import com.lqviet.accountservices.enums.NotificationType;

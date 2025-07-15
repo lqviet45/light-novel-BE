@@ -1,4 +1,4 @@
-﻿package com.lqviet.accountservices.entities;
+package com.lqviet.accountservices.entities;
 
 import com.lqviet.baseentity.entities.BaseEntity;
 import jakarta.persistence.*;

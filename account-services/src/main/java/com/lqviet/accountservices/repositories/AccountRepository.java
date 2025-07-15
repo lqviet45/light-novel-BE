@@ -1,4 +1,4 @@
-﻿package com.lqviet.accountservices.repositories;
+package com.lqviet.accountservices.repositories;
 
 import com.lqviet.accountservices.entities.Account;
 import com.lqviet.baseentity.repository.BaseRepository;

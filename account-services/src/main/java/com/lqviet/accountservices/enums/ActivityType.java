@@ -1,4 +1,4 @@
-﻿package com.lqviet.accountservices.enums;
+package com.lqviet.accountservices.enums;
 
 public enum ActivityType {
     LOGIN, LOGOUT, PASSWORD_CHANGE, EMAIL_CHANGE, PROFILE_UPDATE,

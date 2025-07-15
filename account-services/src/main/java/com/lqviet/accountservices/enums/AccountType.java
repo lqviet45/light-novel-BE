@@ -1,4 +1,4 @@
-﻿package com.lqviet.accountservices.enums;
+package com.lqviet.accountservices.enums;
 
 public enum AccountType {
     USER,
