@@ -2,6 +2,7 @@
 
 import com.lqviet.accountservices.enums.AccountStatus;
 import com.lqviet.accountservices.enums.AccountType;
+import com.lqviet.baseentity.entities.BaseEntity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

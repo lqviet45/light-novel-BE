@@ -1,6 +1,7 @@
 ﻿package com.lqviet.accountservices.entities;
 
 import com.lqviet.accountservices.enums.AddressType;
+import com.lqviet.baseentity.entities.BaseEntity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.*;

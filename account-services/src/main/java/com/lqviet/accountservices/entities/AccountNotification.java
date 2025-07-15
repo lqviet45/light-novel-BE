@@ -2,6 +2,7 @@
 
 import com.lqviet.accountservices.enums.NotificationStatus;
 import com.lqviet.accountservices.enums.NotificationType;
+import com.lqviet.baseentity.entities.BaseEntity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;

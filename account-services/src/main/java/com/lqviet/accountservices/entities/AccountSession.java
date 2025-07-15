@@ -1,6 +1,7 @@
 ﻿package com.lqviet.accountservices.entities;
 
 import com.lqviet.accountservices.enums.SessionStatus;
+import com.lqviet.baseentity.entities.BaseEntity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;

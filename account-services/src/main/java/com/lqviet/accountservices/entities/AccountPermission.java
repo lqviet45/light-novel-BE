@@ -1,5 +1,6 @@
 ﻿package com.lqviet.accountservices.entities;
 
+import com.lqviet.baseentity.entities.BaseEntity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
